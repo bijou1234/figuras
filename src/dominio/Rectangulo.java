@@ -1,13 +1,35 @@
-public class Rectangulo {
+package dominio;
+import java.awt.*;
+public class Rectangulo extends Figura {
     protected double base;
     protected double altura;
-    protected double areaC;
-    protected double PerimetroC;
+    
 
-    public Rectangulo(double base,double altura){
+    public Rectangulo(Punto2D centro,double base,double altura,Color fondo,Color borde){
+        super(centro,fondo,borde);
+
+    
+
+    
+       
         this.base = base;
         this.altura = altura;
-        this.areaC = base * altura;
-        this.PerimetroC = 2 *(base + altura);
+        
+
+    }  
+    @Override
+    public void dibujar(Graphics g) {
+        g.setColor(fondo);
+        g.fillRect(centro.getX(), centro.getY(), (int)base, (int)altura); // relleno
+        g.setColor(trazo);
+        g.drawRect(centro.getX(), centro.getY(), (int)base,(int) altura); // borde
+    }
+
+    public double area(){
+        return base * altura;
+
+    }
+    public double perimetro() {
+        return 2 * base + 2*altura;
     }
 }

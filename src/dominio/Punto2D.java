@@ -33,7 +33,7 @@ package dominio;
     }
  
     public double distancia(Punto2D otro) {
-        return Math.sqrt((coorX - otro.coorX)^2 + (coorY - otro.coorY)^2);
+        return Math.sqrt((coorX - otro.coorX)*(coorX - otro.coorX) + (coorY - otro.coorY)*(coorY - otro.coorY));
     }
  
    
